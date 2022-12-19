@@ -19,7 +19,7 @@ func main() {
 
 	http.HandleFunc("/ip", func(w http.ResponseWriter, req *http.Request) {
 		log.Printf("%v", req)
-		fmt.Fprintf(w, "%s", strings.Split(req.RemoteAddr, ":")[0])
+		fmt.Fprintf(w, "%s\n", strings.Split(req.RemoteAddr, ":")[0])
 	})
 	sigint := make(chan os.Signal, 1)
 	signal.Notify(sigint, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
